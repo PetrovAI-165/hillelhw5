@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+                function customPadString(someString,stringLength,char,leftOrRight = false){
+                    let stringToBeAdded = '';
+                    if (someString.length < stringLength){
+                        for(i = 0; i < ((stringLength-someString.length)); i++){
+                            stringToBeAdded += char;
+                        }
+                        if (leftOrRight === true){
+                            return someString + stringToBeAdded;
+                        }else{
+                            return stringToBeAdded + someString;
+                        }
+                    }else{
+                        return someString;
+                    }
+                };
+
+                let someString = prompt("Введите строку");
+                let stringLength = prompt("Введите длину строки");
+                let char = '';
+                let leftOrRight = false;
+                do{
+                    char = prompt("Введите ОДИН символ");
+                }while (char.length != 1);
+                let stringResult = customPadString(someString,stringLength,char,leftOrRight);
+                alert(stringResult);
+        </script>
+</body>
+</html>
